@@ -1,0 +1,17 @@
+!pip install pytube
+
+from pytube import *
+
+#Save in the current working directory
+download_loc = "./"
+
+# Ask the user to enter url of youtube video
+video_url = input("Enter url: ")
+
+#Create an instance of youtube
+video_instance = YouTube(video_url)
+
+stream = video_instance.streams.get_highest_resolution()
+
+#Download
+stream.download()
